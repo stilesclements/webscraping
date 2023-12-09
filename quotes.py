@@ -63,7 +63,14 @@ authors=authors[:10]
 quote_count=list(authors_dict.values())
 quote_count=quote_count[:10]
 
-fig=px.bar(x=authors,y=quote_count,labels={'x':'Authors','y':'Quote Count'},title='Top 10 Authors by Quote Count')
+tags_dict=(dict(reversed(sorted(tags_dict.items(), key=lambda item: item[1]))))
+tags=list(tags_dict.keys())
+tags=tags[:10]
+tag_count=list(tags_dict.values())
+tag_count=tag_count[:10]
 
-fig.show()
+author_fig=px.bar(x=authors,y=quote_count,labels={'x':'Authors','y':'Quote Count'},title='Top 10 Authors by Quote Count')
+author_fig.show()
 
+tag_fig=px.bar(x=tags,y=tag_count,labels={'x':'Tags','y':'Tag Count'},title='Top 10 Tags by Frequency')
+tag_fig.show()
